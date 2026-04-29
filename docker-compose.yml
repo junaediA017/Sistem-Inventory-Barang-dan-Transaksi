@@ -1,0 +1,19 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # Mengambil UID dan GID user yang sedang login di Linux
+        USER_ID: 1000  # Cek dengan ketik 'id -u' di terminal Anda
+        GROUP_ID: 1000 # Cek dengan ketik 'id -g' di terminal Anda
+    container_name: test_web
+    restart: always
+    shm_size: 128mb
+    working_dir: /usr/src/myapp
+    volumes:
+      - .:/usr/src/myapp
+    stdin_open: true
+    tty: true
+    ports:
+      - "8080:8080"
