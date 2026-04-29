@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
                 'username' => 'admin',
                 'password' => Hash::make('admin'),
                 'role' => 'Admin',
-                'created_at' => time()
+                'created_at' => time(),
+                'id_cabang' => '2'
             ],
             [
                 'name' => 'Jane Doe',
@@ -30,14 +31,15 @@ class DatabaseSeeder extends Seeder
                 'username' => 'operator',
                 'password' => Hash::make('operator'),
                 'role' => 'Operator',
-                'created_at' => time()
+                'created_at' => time(),
+                'id_cabang' => '2'
             ]
         ]);
 
         DB::table('applications')->insert([
             'name' => 'Aplikasi Inventaris',
             'copyright' => 'Inventaris 2023'
-        ]);        
+        ]);
 
         // $this->call([
         //     UserSeeder::class,
