@@ -2,6 +2,7 @@
  
 namespace App\Http\Controllers;
 
+use App\Models\Application;
 use App\Models\User;
 use App\Http\Requests\ChangePasswordRequest;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +18,9 @@ class ChangePasswordController extends Controller
      */
     public function edit()
     {
-        return view('pages.change-password.edit');
+        $data['application'] = Application::getOne();
+
+        return view('pages.change-password.edit', $data);
     }
 
     public function update(ChangePasswordRequest $request)

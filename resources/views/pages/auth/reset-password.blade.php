@@ -1,5 +1,7 @@
 @extends('layouts.auth')
 
+@section('title', "$application->name - Setel Ulang Kata Sandi")
+
 @section('description', 'Halaman formulir untuk atur ulang kata sandi.')
 
 @section('content')

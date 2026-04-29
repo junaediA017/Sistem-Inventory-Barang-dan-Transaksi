@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<x-head />
+<x-head/>
 
-<body id="page-top">
+<body id="page-top" >
     <div class="fixed-top min-vw-100 min-vh-100 bg-light justify-content-center align-items-center d-flex" id="pageLoader" style="z-index: 1051">
         <div class="spinner-border" role="status">
             <span class="sr-only">Loading...</span>
@@ -14,17 +14,17 @@
     <div id="wrapper">
 
         {{-- Sidebar  --}}
-        <x-sidebar application-name="PT. ASM" />
+        <x-sidebar application-name="{{ $application->name }}"/>
         {{-- End of Sidebar  --}}
 
         {{-- Content Wrapper  --}}
         <div id="content-wrapper" class="d-flex flex-column">
 
             {{-- Main Content  --}}
-            <div id="content" style="background-image: url('<?= url('/template/bg.jpg') ?>');">
+            <div id="content" style="background-image: url('/template/bg2.jpg'); background-color: rgba(0, 0, 0, 0.3);">
 
                 {{-- Topbar  --}}
-                <x-topbar />
+                <x-topbar/>
                 {{-- End of Topbar  --}}
 
                 {{-- Begin Page Content  --}}
@@ -32,7 +32,7 @@
 
                     {{-- Page Heading  --}}
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0" style="color:#FFFFFF; "><b>@yield('route_name')</b></h1>
+                        <h1 class="h3 mb-0"style="color:#ffffff; background-color: rgba(255, 0, 0, 0.5);"><b>@yield('route_name')</b></h1>
                     </div>
 
                     {{-- Content Row  --}}
@@ -45,7 +45,7 @@
             {{-- End of Main Content  --}}
 
             {{-- Footer  --}}
-            <x-footer application-copyright="PT. Auto Sunrise Mandiri" />
+            <x-footer application-copyright="{{ $application->copyright }}"/>
             {{-- End of Footer  --}}
 
         </div>
@@ -60,9 +60,9 @@
     </a>
 
     {{-- Logout Modal --}}
-    <x-logout-modal />
+    <x-logout-modal/>
 
-    <x-script />
+    <x-script/>
     @yield('scripts')
 
 </body>

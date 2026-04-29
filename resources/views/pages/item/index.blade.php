@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+@section('title', "$application->name - Barang")
+
 @section('description', 'Halaman yang berisi daftar data barang yang dibuat.')
 
 @section('route_name', 'Barang')
@@ -25,7 +27,7 @@
     @can('isAdmin')
         <div class="row justify-content-end">
             <div class="col-auto">
-                <a href="{{ route('items.create') }}" class="btn btn-sm btn-secondary mb-3">
+                <a href="{{ route('items.create') }}" class="btn btn-sm btn-primary mb-3" style="background-color: #ff0000;">
                     <i class="fas fa-plus mr-1"></i>
                     Tambah
                 </a>

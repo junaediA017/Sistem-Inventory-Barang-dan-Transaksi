@@ -1,5 +1,7 @@
     @extends('layouts.dashboard')
 
+    @section('title', "$application->name - Transaksi Keluar - $item->reference_number")
+
     @section('description', 'Halaman yang berisi informasi detail transaksi Kelar.')
 
     @section('route_name', 'Detail Transaksi (Keluar)')

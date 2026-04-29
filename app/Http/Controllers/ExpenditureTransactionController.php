@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Application;
 use App\Models\ExpenditureTransaction;
 use App\Models\ExpenditureTransactionItem;
 use App\Models\Item;
@@ -18,6 +19,8 @@ class ExpenditureTransactionController extends Controller
      */
     public function index(Request $request)
     {
+        $data['application'] = Application::first();
+
         $data['input'] = $this->getInputParameter($request);
 
         $data['input']['page'] = $data['input']['page'] < 1 ? 1 : $data['input']['page'];
@@ -61,7 +64,7 @@ class ExpenditureTransactionController extends Controller
     public function create()
     {
         $data = [
-            
+            'application' => Application::first(),
             'items' => Item::getAvailableItem(),
             'expenditure_transaction_items' => ExpenditureTransactionItem::getWithSession(
                 session('create-expenditure-transaction-item')
@@ -102,6 +105,7 @@ class ExpenditureTransactionController extends Controller
         $data = [
             'item' => ExpenditureTransaction::with(['expenditureTransactionItems.item'])
                                             ->findOrFail($id), 
+            'application' => Application::first()
         ];
 
         $data['subitems'] = $data['item']->expenditureTransactionItems->sortBy('item.description');
@@ -141,6 +145,8 @@ class ExpenditureTransactionController extends Controller
         } else {
             $data['item'] = ExpenditureTransaction::findOrFail($id);
         }
+
+        $data['application'] = Application::first();
 
         if (empty($session)) {
             $data['items'] = Item::getAvailableItem();

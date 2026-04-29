@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+@section('title', "$application->name - Pengguna")
+
 @section('description', 'Halaman yang berisi daftar data pengguna yang dibuat.')
 
 @section('route_name', 'Pengguna')
@@ -79,14 +81,14 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-secondary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>
     </div>
     <div class="row justify-content-end">
         <div class="col-auto">
-            <a href="{{ route('users.create') }}" class="btn btn-sm btn-secondary mb-3">
+            <a href="{{ route('users.create') }}" class="btn btn-sm btn-primary mb-3" style="background-color: #ff0000;">
                 <i class="fas fa-plus mr-1"></i>
                 Tambah
             </a>
@@ -96,7 +98,7 @@
         <div class="card-header bg-white">
             <div class="row justify-content-center justify-content-lg-between align-items-center">
                 <div class="col-md-7 col-lg-4 mb-2 mb-lg-0">
-                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#filterModal">
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#filterModal" style="background-color: #ff0000;">
                         <i class="fas fa-filter mr-1"></i>
                         Sortir / Saring
                     </button>

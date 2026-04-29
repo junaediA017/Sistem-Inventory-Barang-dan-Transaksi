@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+@section('title', "$application->name - Transaksi (Masuk) - Ubah")
+
 @section('description', 'Halaman yang berisi formulir untuk mengubah data transaksi pemasukkan.')
 
 @section('route_name', 'Ubah Transaksi (Masuk)')
@@ -64,7 +66,7 @@
                         <a href="{{ route('expenditure-transactions.index') }}" class="btn btn-secondary">
                             Kembali
                         </a>
-                        <button class="btn btn-secondary" type="submit" >
+                        <button class="btn btn-primary" type="submit" style="background-color: #ff0000;">
                             Tambah
                         </button>
                     </div>
@@ -201,7 +203,7 @@
                         Kembali
                     </a>
                     <button type="submit"
-                        class="btn btn-secondary" >
+                        class="btn btn-primary" style="background-color: #ff0000;">
                         Simpan
                     </button>
                 </div>

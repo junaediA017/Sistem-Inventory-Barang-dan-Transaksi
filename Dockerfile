@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) gd intl mysqli zip
+    && docker-php-ext-install -j$(nproc) gd intl mysqli zip pdo pdo_mysql
 
 # Buat user baru (xxx) agar tidak menggunakan root
 RUN groupadd -g ${GROUP_ID} xxx && \

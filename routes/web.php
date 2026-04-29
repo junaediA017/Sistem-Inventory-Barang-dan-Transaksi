@@ -33,14 +33,14 @@ Route::middleware(['guest'])->group(function () {
     Route::controller(LoginController::class)->group(function () {
         Route::get('', 'view')->name('login');
         Route::post('', 'authenticate')->middleware('throttle:5,1')
-            ->name('authenticate');
+                                        ->name('authenticate');
     });
 
     Route::prefix('forgot-password')->group(function () {
         Route::controller(ForgotPasswordController::class)->group(function () {
             Route::get('', 'view')->name('forgot-password.index');
             Route::post('', 'sendEmail')->middleware('throttle:5,1')
-                ->name('forgot-password.send');
+                                        ->name('forgot-password.send');
         });
     });
 
@@ -48,15 +48,15 @@ Route::middleware(['guest'])->group(function () {
         Route::controller(ResetPasswordController::class)->group(function () {
             Route::get('{token}', 'view')->name('reset-password.index');
             Route::post('', 'reset')->middleware('throttle:5,1')
-                ->name('reset-password.reset');
+                                    ->name('reset-password.reset');
         });
     });
 });
 
 Route::middleware(['auth'])->group(function () {
     Route::middleware(['can:isPemilik'])->group(function () {
-
-
+   
+    
         Route::get('items/{id}/image', [ItemController::class, 'openImage']);
 
         Route::resource('users', UserController::class);
@@ -66,14 +66,14 @@ Route::middleware(['auth'])->group(function () {
             Route::put('application', 'update')->name('application.update');
         });
     });
-
-
+    
+ 
 
     Route::post('logout', [LogoutController::class, 'logout'])
-        ->name('logout');
+            ->name('logout');
 
     Route::get('dashboard', [DashboardController::class, 'index'])
-        ->name('dashboard');
+            ->name('dashboard');
 
     Route::controller(ProfileController::class)->group(function () {
         Route::get('profile', 'edit')->name('profile.edit');
@@ -86,7 +86,7 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::resource('items', ItemController::class);
-
+    
     Route::delete('income-transaction-items/{item_id}/create', [
         IncomeTransactionItemController::class, 'deleteCreateSession'
     ])->name('income-transaction-items.delete-create-session');
@@ -96,11 +96,8 @@ Route::middleware(['auth'])->group(function () {
     ])->name('income-transaction-items.delete-edit-session');
 
     Route::resource('income-transaction-items', IncomeTransactionItemController::class)->except([
-        'show', 'index', 'pdf'
+        'show', 'index','pdf'
     ]);
-
-    Route::get('income_transactions/diterima/{item_id}', [IncomeTransactionController::class, 'diterima'])->name('income_transactions.diterima');
-    Route::get('income_transactions/gagal/{item_id}', [IncomeTransactionController::class, 'gagal'])->name('income_transactions.gagal');
 
     Route::resource('income-transactions', IncomeTransactionController::class);
     //Route::get('income-transactions/showall', [IncomeTransactionController::class,'showall'])->name('income-transaction.showall');
@@ -114,19 +111,21 @@ Route::middleware(['auth'])->group(function () {
     ])->name('expenditure-transaction-items.delete-edit-session');
 
     Route::resource('expenditure-transaction-items', ExpenditureTransactionItemController::class)->except([
-        'show', 'index', 'delete', 'pdf'
+        'show', 'index', 'delete','pdf'
     ]);
 
     Route::resource('expenditure-transactions', ExpenditureTransactionController::class);
 
     Route::get('stocks', [StockController::class, 'index'])->name('stocks.index');
-
+    
     // routes/web.php
 
-    Route::get('/upload', function () {
-        return view('form_upload');
-    })->name('upload.form');
+Route::get('/upload', function () {
+    return view('form_upload');
+})->name('upload.form');
 
-    // Rute untuk menyimpan gambar setelah formulir di-submit
-    Route::post('/upload', 'ImageController@store')->name('upload.image');
+// Rute untuk menyimpan gambar setelah formulir di-submit
+Route::post('/upload', 'ImageController@store')->name('upload.image');
+
 });
+

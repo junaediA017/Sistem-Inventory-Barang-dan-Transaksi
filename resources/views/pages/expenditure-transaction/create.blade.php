@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+@section('title', "$application->name - Transaksi (Keluar) - Tambah")
+
 @section('description', 'Halaman yang berisi formulir untuk membuat data transaksi pengeluaran.')
 
 @section('route_name', 'Tambah Transaksi (Keluar)')
@@ -60,7 +62,7 @@
                     <a href="{{ route('expenditure-transactions.index') }}" class="btn btn-secondary">
                         Kembali
                     </a>
-                    <button class="btn btn-secondary" type="submit">
+                    <button class="btn btn-primary" type="submit" style="background-color: #ff0000;">
                         Tambah
                     </button>
                 </div>
@@ -143,12 +145,6 @@
             </div>
             <div class="col-12">
                 <div class="form-group">
-                    <label for="deskripsi_pengerjaan">Deskripsi Pengerjaan</label>
-                    <textarea name="deskripsi_pengerjaan" id="deskripsi_pengerjaan" class="form-control">{{ old('deskripsi_pengerjaan') }}</textarea>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="form-group">
                     <label for="remarks">Catatan</label>
                     <textarea name="remarks" id="remarks" class="form-control" readonly>{{ old('remarks','2') }}</textarea>
                 </div>
@@ -162,7 +158,7 @@
                 <a href="{{ route('expenditure-transactions.index') }}" class="btn btn-secondary">
                     Kembali
                 </a>
-                <button type="submit" class="btn btn-secondary">
+                <button type="submit" class="btn btn-primary" style="background-color: #ff0000;">
                     Simpan
                 </button>
             </div>

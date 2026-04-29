@@ -19,7 +19,6 @@ class ExpenditureTransaction extends Model
         'picker',
         'reference_number',
         'remarks',
-        'deskripsi_pengerjaan',
         'created_at',
         'id_cabang'
     ];
@@ -46,7 +45,6 @@ class ExpenditureTransaction extends Model
                 'expenditure_transactions.picker',
                 'expenditure_transactions.reference_number',
                 'expenditure_transactions.remarks',
-                'expenditure_transactions.deskripsi_pengerjaan',
                 'expenditure_transactions.keterangan',
                 'expenditure_transactions.created_at',
                 'expenditure_transactions.id_cabang',
@@ -58,7 +56,6 @@ class ExpenditureTransaction extends Model
                 'expenditure_transactions.picker',
                 'expenditure_transactions.reference_number',
                 'expenditure_transactions.remarks',
-                'expenditure_transactions.deskripsi_pengerjaan',
                 'expenditure_transactions.keterangan',
                 'expenditure_transactions.created_at',
                 'expenditure_transactions.id_cabang',

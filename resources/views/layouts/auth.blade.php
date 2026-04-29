@@ -12,31 +12,37 @@
 
     {{-- Custom fonts for this template --}}
     <link href="{{ url('') }}/template/sb-admin-2/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     {{-- Custom styles for this template --}}
     <link href="{{ url('') }}/template/sb-admin-2/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
-<body style="background-image: url('<?= url('/template/bg.jpg') ?>');">
+<body style="background-image: url('/template/bg.jpg'); background-color: rgba(0, 0, 0, 0.8);">
 
     <div class="container">
+
         {{-- Outer Row  --}}
         <div class="row justify-content-center min-vh-100 align-items-center">
-            <div class="col-xl-5 col-lg-6 col-md-9">
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
-                        {{-- Nested Row within Card Body  --}}
-                        <div class="row">
-                            <div class="col-lg-12">
-                                @yield('content')
-                            </div>
-                        </div>
-                    </div>
+
+        <div class="col-xl-5 col-lg-6 col-md-9">
+    <div class="card o-hidden border-0 shadow-lg my-5" style="background-color: #FFFFFF;">
+        <div class="card-body p-0">
+            {{-- Nested Row within Card Body  --}}
+            <div class="row">
+                <div class="col-lg-12">
+                    @yield('content')
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+        </div>
+
     </div>
 
     {{-- Bootstrap core JavaScript --}}

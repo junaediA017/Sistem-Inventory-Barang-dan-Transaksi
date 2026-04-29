@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+@section('title', "$application->name - Transaksi (Masuk) - Tambah")
+
 @section('description', 'Halaman yang berisi formulir untuk membuat data transaksi pemasukkan.')
 
 @section('route_name', 'Tambah Transaksi (Masuk)')
@@ -57,10 +59,10 @@
                     </div>
                 </div>
                 <div class="col-12 text-right">
-                    <a href="{{ route('income-transactions.index') }}" class="btn btn-secondary">
+                    <a href="{{ route('income-transactions.index') }}" class="btn btn-secondary" >
                         Kembali
                     </a>
-                    <button class="btn btn-secondary" type="submit" >
+                    <button class="btn btn-primary" type="submit" style="background-color: #ff0000;">
                         Tambah
                     </button>
                 </div>
@@ -135,19 +137,11 @@
                     <input type="text" name="reference_number" id="reference_number" value="{{ old('reference_number') }}" class="form-control">
                 </div>
             </div>
-            <div class="form-group">
-                <label for="supplier">Pemasok</label>
-                <select class="form-control" id="supplier" name="supplier">
-                    <option value="" disabled selected>Pilih Pemasok</option>
-                    <option value="Pati Restu Abadi">Pati Restu Abadi</option>
-                    <option value="Andalan Inti Indonesia">Andalan Inti Indonesia</option>
-                    <option value="Talenta Raya">Talenta Raya</option>
-                    <option value="Karang Turi Mandiri">Karang Turi Mandiri</option>
-                    <option value="DMS Premium">DMS Premium</option>
-                    <option value="Tanuri Group">Tanuri Group</option>
-                    <option value="Labora Warna Nobel">Labora Warna Nobel</option>
-                    <option value="Saint-Gobain Abrasives Diamas">Saint-Gobain Abrasives Diamas</option>
-                </select>
+            <div class="col-md-6 col-lg-4">
+                <div class="form-group">
+                    <label for="supplier">Pemasok</label>
+                    <input type="text" class="form-control" id="supplier" name="supplier" value="{{ old('supplier') }}">
+                </div>
             </div>
             <div class="col-12">
                 <div class="form-group">
@@ -164,7 +158,7 @@
                 <a href="{{ route('income-transactions.index') }}" class="btn btn-secondary">
                     Kembali
                 </a>
-                <button type="submit" class="btn btn-secondary" >
+                <button type="submit" class="btn btn-primary" style="background-color: #ff0000;">
                     Simpan
                 </button>
             </div>

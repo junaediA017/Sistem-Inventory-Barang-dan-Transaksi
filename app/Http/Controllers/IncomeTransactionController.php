@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Application;
 use App\Models\IncomeTransaction;
 use App\Models\IncomeTransactionItem;
 use App\Models\Item;
@@ -21,6 +22,8 @@ class IncomeTransactionController extends Controller
      */
     public function index(Request $request)
     {
+        $data['application'] = Application::first();
+
         $data['input'] = $this->getInputParameter($request);
 
         $data['input']['page'] = $data['input']['page'] < 1 ? 1 : $data['input']['page'];
@@ -64,6 +67,7 @@ class IncomeTransactionController extends Controller
     public function create()
     {
         $data = [
+            'application' => Application::first(),
             'items' => Item::orderBy('description')->get(),
             'income_transaction_items' => IncomeTransactionItem::getWithSession(
                 session('create-income-transaction-item')
@@ -103,6 +107,7 @@ class IncomeTransactionController extends Controller
     {
         $data = [
             'item' => IncomeTransaction::with('incomeTransactionItems.item')->findOrFail($id),
+            'application' => Application::first()
         ];
 
         $data['subitems'] = $data['item']->incomeTransactionItems->sortBy('item.description');
@@ -119,6 +124,7 @@ class IncomeTransactionController extends Controller
     {
         $data = [
             'item' => IncomeTransaction::with('incomeTransactionItems.item'),
+            'application' => Application::first()
         ];
 
         $data['subitems'] = $data['item']->incomeTransactionItems->sortBy('item.description');
@@ -157,6 +163,8 @@ class IncomeTransactionController extends Controller
         } else {
             $data['item'] = IncomeTransaction::findOrFail($id);
         }
+
+        $data['application'] = Application::first();
 
         $data['items'] = Item::orderBy('description')->get();
 
@@ -212,27 +220,5 @@ class IncomeTransactionController extends Controller
         $data->delete();
 
         return back()->with('status', 'Berhasil menghapus transaksi (masuk).');
-    }
-
-    public function diterima($id)
-    {
-        $data = IncomeTransaction::findOrFail($id);
-
-        $data->update([
-            'diterima' => 1, // Atur nilai status_diterima sesuai kebutuhan
-        ]);
-
-        return back()->with('status', 'Barang berhasil diterima.');
-    }
-
-    public function gagal($id)
-    {
-        $data = IncomeTransaction::findOrFail($id);
-
-        $data->update([
-            'diterima' => 2, // Atur nilai status_diterima sesuai kebutuhan
-        ]);
-
-        return back()->with('status', 'Barang gagal diterima.');
     }
 }

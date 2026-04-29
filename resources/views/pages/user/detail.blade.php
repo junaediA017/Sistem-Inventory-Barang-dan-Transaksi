@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+@section('title', "$application->name - Pengguna - $item->name")
+
 @section('description', 'Halaman yang berisi informasi detail Pengguna.')
 
 @section('route_name', 'Detail Pengguna')

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Application;
 use App\Models\Item;
 
 use Illuminate\Support\Str;
@@ -19,6 +20,8 @@ class ItemController extends Controller
      */
     public function index(Request $request)
     {
+        $data['application'] = Application::first();
+
         $data['input'] = $this->getInputParameter($request);
 
         $data['input']['page'] = $data['input']['page'] < 1 ? 1 : $data['input']['page'];
@@ -55,7 +58,11 @@ class ItemController extends Controller
     {
         $this->authorize('isAdmin');
 
-        return view('pages.item.create');
+        $data = [
+            'application' => Application::first()
+        ];
+
+        return view('pages.item.create', $data);
     }
 
     /**
@@ -97,6 +104,7 @@ class ItemController extends Controller
     {
         $data = [
             'item' => Item::findOrFail($id),
+            'application' => Application::first()
         ];
 
         return view('pages.item.detail', $data);
@@ -114,6 +122,7 @@ class ItemController extends Controller
 
         $data = [
             'item' => Item::findOrFail($id),
+            'application' => Application::first(),
 
         ];
 

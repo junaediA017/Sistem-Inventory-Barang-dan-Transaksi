@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+@section('title', "$application->name - Ubah Kata Sandi")
+
 @section('description', 'Halaman formulir untuk mengubah kata sandi pengguna.')
 
 @section('route_name', 'Ubah Kata Sandi')

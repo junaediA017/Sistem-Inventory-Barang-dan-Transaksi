@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+@section('title', "$application->name - Ubah Pengaturan Aplikasi")
+
 @section('description', 'Halaman formulir untuk mengubah pengaturan aplikasi.')
 
 @section('route_name', 'Ubah Pengaturan Aplikasi')

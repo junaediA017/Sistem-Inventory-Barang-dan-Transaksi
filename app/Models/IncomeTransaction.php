@@ -18,7 +18,6 @@ class IncomeTransaction extends Model
         'supplier',
         'reference_number',
         'remarks',
-        'diterima',
         'keterangan',
         'created_at',
         'id_cabang'
@@ -48,7 +47,6 @@ class IncomeTransaction extends Model
                 'income_transactions.supplier',
                 'income_transactions.reference_number',
                 'income_transactions.remarks',
-                'income_transactions.diterima',
                 'income_transactions.keterangan',
                 'income_transactions.created_at',
                 'income_transactions.id_cabang',
@@ -60,7 +58,6 @@ class IncomeTransaction extends Model
                 'income_transactions.supplier',
                 'income_transactions.reference_number',
                 'income_transactions.remarks',
-                'income_transactions.diterima',
                 'income_transactions.keterangan',
                 'income_transactions.created_at',
                 'income_transactions.id_cabang',

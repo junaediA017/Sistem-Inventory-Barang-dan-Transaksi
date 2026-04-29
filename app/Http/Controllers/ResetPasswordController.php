@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
+use App\Models\Application;
  
 class ResetPasswordController extends Controller
 {
@@ -18,9 +19,11 @@ class ResetPasswordController extends Controller
      */
     public function view($token)
     {
+        $data['application'] = Application::getOne();
+
         $data['token'] = $token;
 
-        return view('pages.auth.reset-password');
+        return view('pages.auth.reset-password', $data);
     }
 
     /**

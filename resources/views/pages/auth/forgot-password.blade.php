@@ -1,5 +1,7 @@
 @extends('layouts.auth')
 
+@section('title', "$application->name - Lupa Kata Sandi")
+
 @section('description', 'Halaman formulir pengisian email untuk atur ulang kata sandi.')
 
 @section('content')

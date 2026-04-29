@@ -2,6 +2,7 @@
  
 namespace App\Http\Controllers;
 
+use App\Models\Application;
 use App\Models\User;
 use App\Http\Requests\UpdateProfileRequest;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +17,9 @@ class ProfileController extends Controller
      */
     public function edit()
     {
-        return view('pages.profile.edit');
+        $data['application'] = Application::getOne();
+
+        return view('pages.profile.edit', $data);
     }
 
     public function update(UpdateProfileRequest $request)

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
+use App\Models\Application;
  
 class ForgotPasswordController extends Controller
 {
@@ -15,7 +16,9 @@ class ForgotPasswordController extends Controller
      */
     public function view()
     {
-        return view('pages.auth.forgot-password');
+        $data['application'] = Application::getOne();
+
+        return view('pages.auth.forgot-password', $data);
     }
 
     /**

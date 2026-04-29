@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+@section('title', "$application->name - Ubah Profil")
+
 @section('description', 'Halaman formulir untuk mengubah profil pengguna.')
 
 @section('route_name', 'Ubah Profil')

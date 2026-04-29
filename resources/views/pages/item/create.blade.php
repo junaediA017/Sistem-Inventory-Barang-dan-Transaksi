@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+@section('title', "$application->name - Barang - Tambah")
+
 @section('description', 'Halaman yang berisi formulir untuk membuat data barang.')
 
 @section('route_name', 'Tambah Barang')

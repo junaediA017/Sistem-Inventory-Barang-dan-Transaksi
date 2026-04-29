@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+@section('title', "$application->name - Pengguna - Ubah")
+
 @section('description', 'Halaman yang berisi formulir untuk mengubah data pengguna.')
 
 @section('route_name', 'Ubah Pengguna')
@@ -76,7 +78,7 @@
                 </div>
 
                 <div class="col-12">
-                    <button type="submit" class="btn btn-secondary"  >
+                    <button type="submit" class="btn btn-primary" style="background-color: #ff0000;" >
                         Simpan
                     </button>
                     <a href="{{ url()->previous() }}" class="btn btn-secondary">

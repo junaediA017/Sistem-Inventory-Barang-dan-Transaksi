@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Application;
 use App\Models\User;
 use App\Models\Cabang;
 use Illuminate\Support\Facades\Hash;
@@ -18,6 +19,8 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
+        $data['application'] = Application::first();
+
         $data['input'] = $this->getInputParameter($request);
 
         $data['input']['page'] = $data['input']['page'] < 1 ? 1 : $data['input']['page'];
@@ -57,6 +60,7 @@ class UserController extends Controller
      */
     public function create()
     {
+        $data['application'] = Application::first();
         $data['cabang'] = Cabang::getAllData();
 
         return view('pages.user.create', $data);
@@ -93,6 +97,7 @@ class UserController extends Controller
         $data = [
             'item' => User::findOrFail($id),
             'cabang' => User::getKeteranganByID($id),
+            'application' => Application::first(),
         ];
 
         return view('pages.user.detail', $data);
@@ -106,7 +111,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        
+        $data['application'] = Application::first();
         $data['item'] = User::findOrFail($id);
         $data['cabang'] = Cabang::getAllData();
 

@@ -65,7 +65,6 @@ class StoreExpenditureTransactionRequest extends FormRequest
                 'unique:expenditure_transactions'
             ],
             'remarks' => ['nullable', 'string', 'max:60000'],
-            'deskripsi_pengerjaan' => ['nullable', 'string', 'max:60000'],
             'created_at' => [
                 'required', 'numeric',
                 'max:99999999999999999999'

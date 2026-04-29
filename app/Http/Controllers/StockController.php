@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Application;
 use App\Models\Item;
 
 
@@ -15,6 +16,8 @@ class StockController extends Controller
      */
     public function index(Request $request)
     {
+        $data['application'] = Application::first();
+
         $data['input'] = $this->getInputParameter($request);
 
         $data['input']['page'] = $data['input']['page'] < 1 ? 1 : $data['input']['page'];
